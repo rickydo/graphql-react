@@ -13,10 +13,10 @@ const GET_DOGS = gql`
 `;
 
 function Dogs({ onDogSelected }: { onDogSelected: (n: number) => void }) {
-  const { loading, error, data } = useQuery(GET_DOGS);
+  const { loading, error = { message: ''}, data } = useQuery(GET_DOGS);
 
   if (loading) return <Spinner />;
-  return <Dropdown label="Choose a dog" name="dropdown_dog_field" options={data.dogs} errorMessage={error} onChange={ onDogSelected }/>
+  return <Dropdown label="Choose a dog" name="dropdown_dog_field" options={data.dogs} errorMessage={error.message} onChange={ onDogSelected }/>
 }
 
 export default Dogs;

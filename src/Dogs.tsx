@@ -12,7 +12,7 @@ const GET_DOGS = gql`
   }
 `;
 
-function Dogs({ onDogSelected }: { onDogSelected: (n: number) => void }) {
+function Dogs({ onDogSelected }: { onDogSelected: (n: any) => void }) {
   const { loading, error = { message: ''}, data } = useQuery(GET_DOGS);
 
   if (loading) return <Spinner />;
